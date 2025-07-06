@@ -2,11 +2,19 @@
     {
         "word": "resilient",
         "meaning": "able to recover quickly",
-        "example": "she is resilient."
+        "example": "she is resilient.",
+        "state": "unlearned"
     },
     {
         "word": "prefect",
         "meaning": "something is flawess",
-        "example": "I think my project is perfect"
+        "example": "I think my project is perfect",
+        "state": "unlearned"
+    },
+    {
+        "word": "gregarious",
+        "meaning": "sociable, fond of company",
+        "example": "She is a gregarious person and enjoys being around people. ",
+        "state": "unlearned"
     }
 ]

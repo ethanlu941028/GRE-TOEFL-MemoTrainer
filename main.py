@@ -1,21 +1,38 @@
 import json
 import os
 
-
-if os.path.exists("data.json"):
-    with open("data.json", "r") as f:
-        try:
-            data = json.load(f)
-        except json.JSONDecodeError:
-            data = []
+while True:
     
-word = input ("Enter the word:")
-meaning = input("Enter the meaning:")
-example = input("Enter the example:")
+    operation = str(input("Enter the operation: "))
 
-new_data = {"word": word, "meaning": meaning, "example": example}
+    if(operation == "input"):
+        with open("data.json", "r") as f:
+            try:
+                data = json.load(f)
+            except json.JSONDecodeError:
+                data = []
+            
+        word = input ("Enter the word:")
+        meaning = input("Enter the meaning:")
+        example = input("Enter the example:")
+        state = input("Enter the state (unlearned/learned):")
 
-data.append(new_data)
+        new_data = {"word": word, "meaning": meaning, "example": example, "state": "unlearned"}
+
+        data.append(new_data)
+            
+        with open ("data.json", "w") as f:
+            json.dump(data, f, indent=4)
+
+    elif(operation == "read"):
+        with open("data.json", "r") as f:
+            try:
+                data = json.load(f)
+            except json.JSONDecodeError:
+                data = []
+        for i in range(len(data)):
+            print("[", i+1, "]", data[i]["word"], "-", data[i]["meaning"], "-", data[i]["example"], "-", data[i]["state"])
+                    
+    elif(operation == quit):
+        break
     
-with open ("data.json", "w") as f:
-    json.dump(data, f, indent=4)
