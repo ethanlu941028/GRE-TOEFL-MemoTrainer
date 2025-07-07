@@ -18,11 +18,43 @@ def next_word():
     example_label.config(text = "", font = ("Helvetica", 28), fg = "black")  #clear the example label
     
 def add_word():
+    
+    global data
+    #build a new window for input new word
     popup = tk.Tk()
-    popup.title = ("Add New Word")
+    popup.title = ("AddNewWord")
     popup.geometry("400x300")
     
-    tk.Label(popup, text = "Word: ")
+    #word, meaning, example label
+    tk.Label(popup, text = "Word: ", font = ("Helvetica", 20)).pack()
+    word_entry = tk.Entry(popup, font = ("Helvetica", 20))
+    word_entry.pack()
+    
+    tk.Label(popup, text = "Meaning: " , font = ("Helvetica", 20)).pack()
+    meaning_entry = tk.Entry(popup, font = ("Helvetica", 20))
+    meaning_entry.pack()
+    
+    tk.Label(popup, text = "Example: ", font = ("Helvetica", 20)).pack()
+    example_entry = tk.Entry(popup, font = ("Helvetica", 20))
+    example_entry.pack()
+    
+    def save_new_word():
+        new_entry = {
+            "word" : word_entry.get(),
+            "meaning" :  meaning_entry.get(),
+            "example" : example_entry.get()
+        }
+        
+        data.append(new_entry)
+        
+        with open("data.json", "w") as f:
+            json.dump(data, f, indent = 4)
+        
+        popup.destroy()
+        
+    save_word_button = tk.Button(popup, text = "Save Word", command = save_new_word, font = ("Helvetica", 20))
+    save_word_button.pack()
+        
 
 with open("data.json", "r") as f:
     try:
@@ -34,6 +66,7 @@ index = 0
 window = tk.Tk()                #build the window object
 window.title("MyWordCoach")     #the window title
 window.geometry("800x600")    #the window size
+
 
 #add Label to show the word
 word_label = tk.Label(window, text = data[index]["word"], font = ("Helvetica", 28), fg = "black", bg = "white")  #create a label with the word
@@ -62,11 +95,12 @@ show_meaning_buttin.pack(side = "left")
 show_example_buttin = tk.Button(button_frame, text = "Show Example", command = show_example, font = ("Helvetica", 20), fg = "black", bg = "white")  #create a button to show the meaning
 show_example_buttin.pack(side = "right")
 
-add_word_button = tk.Button(window, text = "Add Word", command = add_word, font = ("Helvetica", 20), fg = "black", bg = "white")  #create a button to add a new word
-add_word_button.pack(pady = 10)
 
 #add next_word button
 next_word_button = tk.Button(window, text = "Next Word", command = next_word, font = ("Helvetica", 20), fg = "black", bg = "white")  #create a button to show the next word
 next_word_button.pack()       #add the button to the window
+
+add_word_button = tk.Button(window, text = "Add Word", command = add_word, font = ("Helvetica", 20), fg = "black", bg = "white")  #create a button to add a new word
+add_word_button.pack()
 
 window.mainloop()               #keep the window appearing

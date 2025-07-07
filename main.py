@@ -15,9 +15,8 @@ while True:
         word = input ("Enter the word:")
         meaning = input("Enter the meaning:")
         example = input("Enter the example:")
-        state = input("Enter the state (unlearned/learned):")
 
-        new_data = {"word": word, "meaning": meaning, "example": example, "state": "unlearned"}
+        new_data = {"word": word, "meaning": meaning, "example": example}
 
         data.append(new_data)
             
@@ -31,7 +30,7 @@ while True:
             except json.JSONDecodeError:
                 data = []
         for i in range(len(data)):
-            print("[", i+1, "]", data[i]["word"], "-", data[i]["meaning"], "-", data[i]["example"], "-", data[i]["state"])
+            print("[", i+1, "]", data[i]["word"], "-", data[i]["meaning"], "-", data[i]["example"])
                     
     elif(operation == quit):
         break
