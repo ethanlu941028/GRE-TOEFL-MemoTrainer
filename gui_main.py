@@ -14,8 +14,8 @@ def next_word():
     if(index >= len(data)):
         index = 0
     word_label.config(text = data[index]["word"], font = ("Helvetica", 28), fg = "black", bg = "white")  #change the text of the word label
-    meaning_label.config(text = "", font = ("Helvetica", 28), fg = "black")  #clear the meaning label
-    example_label.config(text = "", font = ("Helvetica", 28), fg = "black")  #clear the example label
+    meaning_label.config(text = "", font = ("Helvetica", 28), fg = "black", bg = "grey21")  #clear the meaning label
+    example_label.config(text = "", font = ("Helvetica", 28), fg = "black", bg = "grey21")  #clear the example label
     
 def add_word():
     
@@ -56,6 +56,7 @@ def add_word():
     save_word_button.pack()
         
 
+#main
 with open("data.json", "r") as f:
     try:
         data = json.load(f)
@@ -66,6 +67,7 @@ index = 0
 window = tk.Tk()                #build the window object
 window.title("MyWordCoach")     #the window title
 window.geometry("800x600")    #the window size
+window.configure(bg = "grey21")
 
 
 #add Label to show the word
@@ -73,11 +75,11 @@ word_label = tk.Label(window, text = data[index]["word"], font = ("Helvetica", 2
 word_label.pack(pady = 20)      #add the label to the window and set the padding
 
 #add the meaning label, and should be empty first
-meaning_label = tk.Label(window, text = "", font = ("Helvetica", 28), fg = "black")  #create a nothing label for the meaning first
+meaning_label = tk.Label(window, font = ("Helvetica", 28), fg = "black", bg = "grey21")  #create a nothing label for the meaning first
 meaning_label.pack(pady = 30)   
 
 #add the example label
-example_label = tk.Label(window, text = "", font = ("Helvetica", 28), fg = "black")  #create a nothing label for the example first
+example_label = tk.Label(window, font = ("Helvetica", 28), fg = "black", bg = "grey21")  #create a nothing label for the example first
 example_label.pack(pady = 30)
 
 
