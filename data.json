@@ -2,26 +2,25 @@
     {
         "word": "resilient",
         "meaning": "able to recover quickly",
-        "example": "she is resilient."
+        "example": "she is resilient.",
+        "difficulty": null
     },
     {
         "word": "prefect",
         "meaning": "something is flawess",
-        "example": "I think my project is perfect"
+        "example": "I think my project is perfect",
+        "difficulty": null
     },
     {
         "word": "gregarious",
         "meaning": "sociable, fond of company",
-        "example": "She is a gregarious person and enjoys being around people. "
+        "example": "She is a gregarious person and enjoys being around people. ",
+        "difficulty": null
     },
     {
         "word": "tagliatelle",
         "meaning": "egg noodles cut in long, flat pieces",
-        "example": "The taglitelle made by chef is delicious"
-    },
-    {
-        "word": "tagliatelle",
-        "meaning": "egg noodles cut in long, flat peices",
-        "example": "The tagliatelle made by the chef is delicious"
+        "example": "The taglitelle made by chef is delicious",
+        "difficulty": null
     }
 ]
