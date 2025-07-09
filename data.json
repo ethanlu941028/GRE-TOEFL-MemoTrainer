@@ -9,28 +9,28 @@
     {
         "word": "prefect",
         "meaning": "something is flawess",
-        "example": "I think my project is perfect",
+        "example": "I think my project is perfect.",
         "difficulty": 3,
         "proficiency": 1
     },
     {
         "word": "gregarious",
         "meaning": "sociable, fond of company",
-        "example": "She is a gregarious person and enjoys being around people. ",
+        "example": "She is a gregarious person and enjoys being around people.",
         "difficulty": 5,
         "proficiency": 1
     },
     {
         "word": "tagliatelle",
         "meaning": "egg noodles cut in long, flat pieces",
-        "example": "The taglitelle made by chef is delicious",
+        "example": "The taglitelle made by chef is delicious.",
         "difficulty": 3,
         "proficiency": 1
     },
     {
         "word": "elucidate",
         "meaning": "part of speech",
-        "example": "The professor elucidated the complex theory with somple diagrams and real-life example",
+        "example": "The professor elucidated the complex theory with somple diagrams and real-life example.",
         "difficulty": 4,
         "proficiency": 1
     }

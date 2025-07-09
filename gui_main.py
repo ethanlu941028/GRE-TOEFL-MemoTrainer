@@ -166,13 +166,12 @@ word_label = tk.Label(window, text = data[index]["word"], font = ("Helvetica", 2
 word_label.place(relx = 0.5, y = 50, anchor = "center")      #relative x(0 ~ 1)  anchor is the object's point
 
 #add the meaning label, and should be empty first
-meaning_label = tk.Label(window, font = ("Helvetica", 28), fg = "black", bg = "grey21")  #create a nothing label for the meaning first
+meaning_label = tk.Label(window, font = ("Helvetica", 28), fg = "black", bg = "grey21", wraplength = 750, justify = "left")  #create a nothing label for the meaning first
 meaning_label.place(relx = 0.5, y = 150, anchor = "center")
 
 #add the example label
-example_label = tk.Label(window, font = ("Helvetica", 28), fg = "black", bg = "grey21")  #create a nothing label for the example first
+example_label = tk.Label(window, font = ("Helvetica", 28), fg = "black", bg = "grey21", wraplength = 750)  #create a nothing label for the example first
 example_label.place(relx = 0.5, y = 250, anchor = "center")
-
 
 
 #add a frame for the difficulty button
