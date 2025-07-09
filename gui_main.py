@@ -1,6 +1,7 @@
 import tkinter as tk
 import json
 import os
+import random
 
 def show_meaning():
     meaning_label.config(text = data[index]["meaning"], font = ("Helvetica", 28), fg = "black", bg = "white")     #change the text of the label
@@ -10,9 +11,7 @@ def show_example():
 
 def next_word():
     global index
-    index+=1
-    if(index >= len(data)):
-        index = 0
+    index = random.randint(0, len(data) - 1)
     word_label.config(text = data[index]["word"], font = ("Helvetica", 28), fg = "black", bg = "white")  #change the text of the word label
     meaning_label.config(text = "", font = ("Helvetica", 28), fg = "black", bg = "grey21")  #clear the meaning label
     example_label.config(text = "", font = ("Helvetica", 28), fg = "black", bg = "grey21")  #clear the example label
@@ -62,7 +61,7 @@ with open("data.json", "r") as f:
         data = json.load(f)
     except json.JSONDecodeError:
         data = []
-index = 0
+index = random.randint(0, len(data) - 1)
 
 window = tk.Tk()                #build the window object
 window.title("MyWordCoach")     #the window title
