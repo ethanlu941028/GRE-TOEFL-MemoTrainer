@@ -101,21 +101,21 @@ def add_word():
     
     global data
     #build a new window for input new word
-    popup = tk.Tk()
-    popup.title = ("AddNewWord")
-    popup.geometry("400x300")
+    popup1 = tk.Tk()
+    popup1.title = ("AddNewWord")
+    popup1.geometry("400x300")
     
     #word, meaning, example label
-    tk.Label(popup, text = "Word: ", font = ("Helvetica", 20)).pack()
-    word_entry = tk.Entry(popup, font = ("Helvetica", 20))
+    tk.Label(popup1, text = "Word: ", font = ("Helvetica", 20)).pack()
+    word_entry = tk.Entry(popup1, font = ("Helvetica", 20))
     word_entry.pack()
     
-    tk.Label(popup, text = "Meaning: " , font = ("Helvetica", 20)).pack()
-    meaning_entry = tk.Entry(popup, font = ("Helvetica", 20))
+    tk.Label(popup1, text = "Meaning: " , font = ("Helvetica", 20)).pack()
+    meaning_entry = tk.Entry(popup1, font = ("Helvetica", 20))
     meaning_entry.pack()
     
-    tk.Label(popup, text = "Example: ", font = ("Helvetica", 20)).pack()
-    example_entry = tk.Entry(popup, font = ("Helvetica", 20))
+    tk.Label(popup1, text = "Example: ", font = ("Helvetica", 20)).pack()
+    example_entry = tk.Entry(popup1, font = ("Helvetica", 20))
     example_entry.pack()
     
     def save_new_word():
@@ -132,11 +132,19 @@ def add_word():
         with open("data.json", "w") as f:
             json.dump(data, f, indent = 4)
         
-        popup.destroy()
+        popup1.destroy()
         
-    save_word_button = tk.Button(popup, text = "Save Word", command = save_new_word, font = ("Helvetica", 20))
+    save_word_button = tk.Button(popup1, text = "Save Word", command = save_new_word, font = ("Helvetica", 20))
     save_word_button.pack()
-        
+       
+       
+def show_help():
+    
+    help_window = tk.Tk()
+    help_window.title("HelpWindow")
+    help_window.geometry("400x600")
+    help_window.configure("grey21")
+    
 
 #main
 with open("data.json", "r") as f:
@@ -164,18 +172,24 @@ window.columnconfigure(0, weight = 1)       #the thing inside column  0 can adju
 
 main_frame = tk.Frame(window, bg = "grey21")
 main_frame.grid(row = 0, column = 0, sticky = "nsew")           #expand the main_frame in the window
+main_frame.rowconfigure(0, weight = 1)
 main_frame.rowconfigure(1, weight = 1, minsize = 100)           #the object inside row 1 can adjust the distance averagely, relatively
 main_frame.rowconfigure(2, weight = 1, minsize = 100)           #the object inside row 2 can adjust the distance avegrely, relatively
 main_frame.columnconfigure(0, weight = 1)
 
 
-#add Label to show the word
+
+#press help_button, it will show every objects' function
+help_button = tk.Button(main_frame, text = "@", command = show_help, font = ("Helvetica", 20), fg = "white", bg = "grey21", highlightthickness = 0, borderwidth = 0)
+help_button.grid(row = 0, column = 0, sticky = "e", padx = (0, 30))
+
 word_label = tk.Label(main_frame, text = data[index]["word"], font = ("Helvetica", 28), fg = "black", bg = "white")  #create a label with the word
-word_label.grid(row = 0, column = 0, pady = (20, 10))
+word_label.grid(row = 1, column = 0, sticky = "n")
+
 
 #meaning_frame to contain meaning_label (cause the label may change line)
 meaning_frame = tk.Frame(main_frame, bg = "grey21")
-meaning_frame.grid(row = 1, column = 0, pady = (10, 10), sticky = "nsew")
+meaning_frame.grid(row = 2, column = 0, pady = (10, 10), sticky = "nsew")
 meaning_frame.columnconfigure(0, weight = 1)
 meaning_frame.grid_propagate(False)          #don't let the inside object change the height of frame
 
@@ -185,7 +199,7 @@ meaning_label.grid(row = 0, column = 0)
 
 #example_frame to contain example_label (cause the label may change line)
 example_frame = tk.Frame(main_frame, bg = "grey21")
-example_frame.grid(row = 2, column = 0, pady = (10, 10), sticky = "nsew")
+example_frame.grid(row = 3, column = 0, pady = (10, 10), sticky = "nsew")
 example_frame.columnconfigure(0, weight = 1)
 example_frame.grid_propagate(False)          #don't let the label change the height of frame
 
@@ -195,16 +209,16 @@ example_label.grid(row = 0, column = 0)
 
 #add a frame for the difficulty button
 difficulty_frame = tk.Frame(main_frame, bg = "grey21")
-difficulty_frame.grid(row = 3, column = 0, pady = (10, 0))
+difficulty_frame.grid(row = 4, column = 0, pady = (10, 0))
 
 #add a frame for proficiency button
 proficiency_frame = tk.Frame(main_frame, bg = "grey21")
-proficiency_frame.grid(row = 4, column = 0, pady = (5, 10))
+proficiency_frame.grid(row = 5, column = 0, pady = (5, 10))
 
 
 #frame for the buttons
 show_button_frame = tk.Frame(main_frame, bg = "grey21")
-show_button_frame.grid(row = 5, column = 0, pady = 10)
+show_button_frame.grid(row = 6, column = 0, pady = 10)
 
 #add the show_meaning button
 show_meaning_buttin = tk.Button(show_button_frame, text = "Show Meaning", command = show_meaning, font = ("Helvetica", 20), fg = "black", bg = "white")  #create a button to show the meaning
@@ -216,7 +230,7 @@ show_example_buttin.pack(side = "right", padx = 10)
 
 #frame for next_word and add_word
 word_button_frame = tk.Frame(main_frame, bg = "grey21")
-word_button_frame.grid(row = 6, column = 0, pady = 10)
+word_button_frame.grid(row = 7, column = 0, pady = 10)
 
 #add next_word button
 next_word_button = tk.Button(word_button_frame, text = "Next Word", command = next_word, font = ("Helvetica", 20), fg = "black", bg = "white")  #create a button to show the next word
