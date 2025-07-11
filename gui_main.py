@@ -215,16 +215,16 @@ window.columnconfigure(0, weight = 1)       #the thing inside column  0 can adju
 
 main_frame = tk.Frame(window, bg = "grey21")
 main_frame.grid(row = 0, column = 0, sticky = "nsew")           #expand the main_frame in the window
-main_frame.rowconfigure(0, weight = 1)
-main_frame.rowconfigure(1, weight = 1, minsize = 100)           #the object inside row 1 can adjust the distance averagely, relatively
-main_frame.rowconfigure(2, weight = 1, minsize = 100)           #the object inside row 2 can adjust the distance avegrely, relatively
+main_frame.rowconfigure(1, weight = 1)           #the object inside row 1 can adjust the distance averagely, relatively
+main_frame.rowconfigure(2, weight = 1)           #the object inside row 2 can adjust the distance avegrely, relatively
+main_frame.rowconfigure(3, weight = 1)
 main_frame.columnconfigure(0, weight = 1)
 
 
 
 #press help_button, it will show every objects' function
-help_button = tk.Button(main_frame, text = "@", command = show_help, font = ("Helvetica", 20), fg = "white", bg = "grey21", highlightthickness = 0, borderwidth = 0)
-help_button.grid(row = 0, column = 0, sticky = "e", padx = (0, 30))
+help_button = tk.Button(main_frame, text = "@", command = show_help, font = ("Helvetica", 16), fg = "white", bg = "grey21", highlightthickness = 0, borderwidth = 0)
+help_button.grid(row = 0, column = 0, sticky = "e")
 
 word_label = tk.Label(main_frame, text = data[index]["word"], font = ("Helvetica", 28), fg = "black", bg = "white")  #create a label with the word
 word_label.grid(row = 1, column = 0, sticky = "n")
@@ -232,7 +232,7 @@ word_label.grid(row = 1, column = 0, sticky = "n")
 
 #meaning_frame to contain meaning_label (cause the label may change line)
 meaning_frame = tk.Frame(main_frame, bg = "grey21")
-meaning_frame.grid(row = 2, column = 0, pady = (10, 10), sticky = "nsew")
+meaning_frame.grid(row = 2, column = 0, pady = (0, 10), sticky = "nsew")
 meaning_frame.columnconfigure(0, weight = 1)
 meaning_frame.grid_propagate(False)          #don't let the inside object change the height of frame
 
