@@ -143,8 +143,51 @@ def show_help():
     help_window = tk.Tk()
     help_window.title("HelpWindow")
     help_window.geometry("400x600")
-    help_window.configure("grey21")
+    help_window.configure(bg = "grey21")
+    help_window.rowconfigure(0, weight = 1)
+    help_window.columnconfigure(0, weight = 1)
     
+    help_main_frame = tk.Frame(help_window, bg = "grey21")
+    help_main_frame.grid(row = 0, column = 0, sticky = "nsew")
+    help_main_frame.columnconfigure(0, weight = 1)
+    help_main_frame.rowconfigure(3, weight = 1)
+    help_main_frame.rowconfigure(4, weight = 1)
+    help_main_frame.rowconfigure(5, weight = 1)
+    help_main_frame.rowconfigure(6, weight = 1)
+    
+    
+    help_word_label = tk.Label(help_main_frame, text = "Word", font = ("Helvetica", 28), fg = "white", bg = "grey21")
+    help_word_label.grid(row = 0, column = 0, pady = (20, 0))
+    
+    help_meaning_label = tk.Label(help_main_frame, text = "Meaning of the Word", font = ("Helvetica", 28), fg = "white", bg = "grey21")
+    help_meaning_label.grid(row = 1, column = 0, pady = (5, 10))
+    
+    help_example_label = tk.Label(help_main_frame, text = "Example of the Word", font = ("Helvetica", 28), fg = "white", bg = "grey21")
+    help_example_label.grid(row = 2, column = 0, pady = (5, 10))
+    
+    help_difficulty_label = tk.Label(help_main_frame, text = "Rate the difficulty of the word you think", font = ("Helvetica", 28), fg = "white", bg = "grey21", wraplength = 350)
+    help_difficulty_label.grid(row = 3, column = 0, pady = (40, 0))
+    
+    help_proficiency_label = tk.Label(help_main_frame, text = "Rate the proficiency of the word you remember this time", font = ("Helvetica", 28), fg = "white", bg = "grey21", wraplength = 350)
+    help_proficiency_label.grid(row = 4, column = 0, pady = (40, 0))
+    
+    show_frame = tk.Frame(help_main_frame, bg = "grey21")
+    show_frame.grid(row = 5, column = 0, pady = (40, 0))
+    
+    help_show_meaning_label = tk.Label(show_frame, text = "Press to look the meaning of the word", font = ("Helvetica", 16), fg = "white", bg = "grey21", wraplength = 150)
+    help_show_meaning_label.pack(side = "left", padx = 10)
+    
+    help_show_example_label = tk.Label(show_frame, text = "Press to look the example of the word", font = ("Helvetica", 16), fg = "white", bg = "grey21", wraplength = 150)
+    help_show_example_label.pack(side = "right", padx = 10)
+    
+    add_next_frame = tk.Frame(help_main_frame, bg = "grey21")
+    add_next_frame.grid(row = 6, column = 0, pady = (40, 0))
+    
+    help_next_word = tk.Label(add_next_frame, text = "Press then get to the next word", font = ("Helvetica", 16), fg = "white", bg = "grey21", wraplength = 150)
+    help_next_word.pack(side = "left", padx = 10)
+    
+    help_add_word = tk.Label(add_next_frame, text = "Press the button then you can add word", font = ("Helvetica", 16), fg = "white", bg = "grey21", wraplength = 150)
+    help_add_word.pack(side = "right", padx = 10)
 
 #main
 with open("data.json", "r") as f:
