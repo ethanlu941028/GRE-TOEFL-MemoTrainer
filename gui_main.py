@@ -155,7 +155,6 @@ def show_help():
     help_main_frame.rowconfigure(5, weight = 1)
     help_main_frame.rowconfigure(6, weight = 1)
     
-    
     help_word_label = tk.Label(help_main_frame, text = "Word", font = ("Helvetica", 28), fg = "white", bg = "grey21")
     help_word_label.grid(row = 0, column = 0, pady = (20, 90))
     
@@ -252,11 +251,11 @@ example_label.grid(row = 0, column = 0)
 
 #add a frame for the difficulty button
 difficulty_frame = tk.Frame(main_frame, bg = "grey21")
-difficulty_frame.grid(row = 4, column = 0, pady = (10, 0))
+difficulty_frame.grid(row = 4, column = 0, pady = (30, 0))
 
 #add a frame for proficiency button
 proficiency_frame = tk.Frame(main_frame, bg = "grey21")
-proficiency_frame.grid(row = 5, column = 0, pady = (5, 10))
+proficiency_frame.grid(row = 5, column = 0, pady = (0, 10))
 
 
 #frame for the buttons
