@@ -32,7 +32,7 @@ def show_difficulty_button():
         star_button = tk.Canvas(difficulty_frame, width = 60, height = 60, bg = "grey21", highlightthickness = 0)
         star_button.pack(side = "left", padx = 3)
         
-        star_button.create_text(30, 30, text = "*", font = ("Helvetica", 40), fill = "gold")
+        star_button.create_text(30, 30, text = "*", font = ("Helvetica", 50 + i * 10), fill = "gold")
         
         def on_click(event, rating = i):
             set_difficulty(rating)
@@ -64,7 +64,7 @@ def show_proficiency_button():
         question_button = tk.Canvas(proficiency_frame, width = 60, height = 60, bg = "grey21", highlightthickness = 0)
         question_button.pack(side = "left", padx = 3)
         
-        question_button.create_text(30, 30, text = "?", font = ("Helvetica", 40), fill = "red")
+        question_button.create_text(30, 30, text = "?", font = ("Helvetica", 15 + i * 8), fill = "red")
         
         def on_click(event, rating = i):
             set_proficiency(rating)
